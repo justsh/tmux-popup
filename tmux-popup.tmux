@@ -12,7 +12,7 @@ set_key_binds() {
     local height="$(get_tmux_option "$POPUP_HEIGHT_OPTION" "$POPUP_DEFAULT_HEIGHT")"
     local width="$(get_tmux_option "$POPUP_WIDTH_OPTION" "$POPUP_DEFAULT_WIDTH")"
     # scratch popup
-    tmux bind-key -T "$table" "$key" display-popup -E -b "$border" -h "$height" -w "$width" "tmux_popup.sh create"
+    tmux bind-key -T "$table" "$key" display-popup -E -b "$border" -h "$height" -w "$width" "${SCRIPTS_DIR}/tmux_popup.sh create"
     # close the popup with the same keymap used to open it
     tmux bind-key -T popup "$key" detach
 
