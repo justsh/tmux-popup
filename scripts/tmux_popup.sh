@@ -10,6 +10,10 @@ case "$1" in
             tmux set-option -s -t "$session_id" key-table popup
             # no need to show status bar in the popup window
             tmux set-option -s -t "$session_id" status off
+            # ensure the detach hook is fired when exiting the popup window process,
+            # even if the user otherwise has configured "detach-on-destroy off"
+            # for regular session windows.
+            tmux set-option -s -t "$session_id" detach-on-destroy on
             popup_session="$session_id"
         fi
 
